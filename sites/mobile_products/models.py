@@ -228,6 +228,7 @@ class MobileProduct(models.Model):
     label = models.CharField(max_length=128)
     main_genre = models.CharField(max_length=32, choices=GENRE_CHOICES)
     main_subgenre = models.CharField(max_length=32, blank=True)
+    notes = models.TextField(blank=True)
     original_release_date = models.DateField(null=True, blank=True)
     parental_advisory = models.NullBooleanField()
     product_version = models.CharField(max_length=128, blank=True)
