@@ -108,8 +108,8 @@ class VideoResource(models.Model):
 
 
 class Resources(models.Model):
-    audio_resource = models.ForeignKey(AudioResource)
-    video_resource = models.ForeignKey(VideoResource)
+    audio_resource = models.ManyToManyField(AudioResource, blank=True)
+    video_resource = models.ManyToManyField(VideoResource, blank=True)
 
 
 class UsageRight(models.Model):
@@ -161,11 +161,11 @@ class Ringtone(models.Model):
     alternate_genre = models.CharField(max_length=32, blank=True,
                                        choices=GENRE_CHOICES)
     alternate_subgenre = models.CharField(max_length=32, blank=True)
-    artists = models.ForeignKey(Artist)
+    artists = models.ManyToManyField(Artist)
     available_seperately = models.BooleanField()
     catalog_tier = models.CharField(max_length=64,
                                     choices=CATALOG_TIER_CHOICES)
-    contributors = models.ForeignKey(Contributor)
+    contributors = models.ManyToManyField(Contributor)
     country_of_commissioning = models.CharField(max_length=128, blank=True)
     country_of_recording = models.CharField(max_length=128, blank=True)
     display_artist = models.CharField(max_length=128)
@@ -180,10 +180,10 @@ class Ringtone(models.Model):
     parental_advisory = models.NullBooleanField()
     publishing_rights_owner = models.CharField(max_length=128, blank=True)
     publishing_rights_year = models.PositiveIntegerField(null=True, blank=True)
-    publishers = models.ForeignKey(Publisher)
+    publishers = models.ManyToManyField(Publisher)
     recording_location = models.CharField(max_length=128, blank=True)
     recording_year = models.PositiveIntegerField(null=True, blank=True)
-    resources = models.ForeignKey(Resources)
+    resources = models.ManyToManyField(Resources, blank=True)
     rights_contract_begin_date = models.DateField(null=True, blank=True)
     rights_holder_name = models.CharField(max_length=128, blank=True)
     sequence_number = models.IntegerField()
@@ -197,7 +197,7 @@ class Ringtone(models.Model):
                                                           help_text=_("In "
                                                                       "seconds"))
     title = models.CharField(max_length=128)
-    usage_rights = models.ForeignKey(UsageRight)
+    usage_rights = models.ManyToManyField(UsageRight, blank=True)
     version = models.CharField(max_length=64, blank=True)
 
 
@@ -211,13 +211,13 @@ class MobileProduct(models.Model):
     alternate_genre = models.CharField(max_length=32, blank=True,
                                        choices=GENRE_CHOICES)
     alternate_subgenre = models.CharField(max_length=32, blank=True)
-    attachments = models.ForeignKey(Attachment)
-    artists = models.ForeignKey(Artist)
+    attachments = models.ForeignKey(Attachment, null=True, blank=True)
+    artists = models.ManyToManyField(Artist)
     catalog_tier = models.CharField(max_length=64,
                                     choices=CATALOG_TIER_CHOICES)
     catalog_number = models.CharField(max_length=32, unique=True)
     consumer_release_date = models.DateField()
-    cover_art = models.ForeignKey(CoverArt)
+    cover_art = models.ForeignKey(CoverArt, null=True, blank=True)
     copyright_owner = models.CharField(max_length=128)
     copyright_year = models.PositiveIntegerField()
     display_artist = models.CharField(max_length=128)
@@ -236,10 +236,10 @@ class MobileProduct(models.Model):
     publishing_rights_year = models.PositiveIntegerField()
     recording_location = models.CharField(max_length=128, blank=True)
     recording_year = models.PositiveIntegerField(null=True, blank=True)
-    ringtones = models.ForeignKey(Ringtone)
+    ringtones = models.ManyToManyField(Ringtone)
     total_play_time = models.PositiveIntegerField(help_text=_("The total "
                                                               "play time in "
                                                               "seconds"))
     title = models.CharField(max_length=128)
     upc_code = models.CharField(max_length=32)
-    usage_rights = models.ForeignKey(UsageRight)
+    usage_rights = models.ManyToManyField(UsageRight, blank=True)
