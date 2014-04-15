@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'mobile_products',
     'south',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
