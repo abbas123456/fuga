@@ -9,7 +9,7 @@ class Artist(models.Model):
 
 
 class AttachmentFile(models.Model):
-    path = models.CharField(max_length=256)
+    file_path = models.CharField(max_length=256)
     name = models.CharField(max_length=128)
     crc32_checksum = models.CharField(max_length=32)
     size = models.IntegerField()
@@ -19,12 +19,12 @@ class Attachment(models.Model):
     ATTACHMENT_TYPE_CHOICES = (('REGULAR', 'REGULAR'),
                                ('BOOKLET', 'BOOKLET'))
 
-    name = models.CharField(max_length=128, blank=True)
-    description = models.TextField(blank=True)
+    name = models.CharField(max_length=128, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     attachment_type = models.CharField(max_length=16,
                                        choices=ATTACHMENT_TYPE_CHOICES)
-    original_file_name = models.CharField(max_length=128, blank=True)
-    attachment_file = models.OneToOneField(AttachmentFile)
+    original_file_name = models.CharField(max_length=128, null=True, blank=True)
+    attachment_file = models.ForeignKey(AttachmentFile)
 
 
 class CoverArt(models.Model):
@@ -42,7 +42,7 @@ class CoverArt(models.Model):
     height = models.PositiveIntegerField(null=True, blank=True)
     file_format = models.CharField(max_length=8, choices=FILE_FORMAT_CHOICES,
                                    default="JPEG")
-    attachment_file = models.OneToOneField(AttachmentFile)
+    attachment_file = models.ForeignKey(AttachmentFile)
 
 
 class Contributor(models.Model):
@@ -153,36 +153,40 @@ class Ringtone(models.Model):
                         ('Back catalog', 'Back catalog'),
                         ('Free catalog', 'Free catalog'))
 
-    alternate_genre = models.CharField(max_length=32, blank=True,
+    alternate_genre = models.CharField(max_length=32, null=True, blank=True,
                                        choices=GENRE_CHOICES)
-    alternate_subgenre = models.CharField(max_length=32, blank=True)
+    alternate_subgenre = models.CharField(max_length=32, null=True, blank=True)
     artists = models.ManyToManyField(Artist)
     available_separately = models.BooleanField()
     catalog_tier = models.CharField(max_length=64,
                                     choices=CATALOG_TIER_CHOICES)
     contributors = models.ManyToManyField(Contributor)
-    country_of_commissioning = models.CharField(max_length=128, blank=True)
-    country_of_recording = models.CharField(max_length=128, blank=True)
+    country_of_commissioning = models.CharField(max_length=128, null=True,
+                                                blank=True)
+    country_of_recording = models.CharField(max_length=128, null=True,
+                                            blank=True)
     display_artist = models.CharField(max_length=128)
     duration = models.PositiveIntegerField(help_text=_("The total "
                                                        "play time in "
                                                        "seconds"))
     isrc_code = models.CharField(max_length=12)
-    lyrics = models.TextField(blank=True)
+    lyrics = models.TextField(null=True, blank=True)
     main_genre = models.CharField(max_length=32, choices=GENRE_CHOICES)
-    main_subgenre = models.CharField(max_length=32, blank=True)
-    notes = models.TextField(blank=True)
+    main_subgenre = models.CharField(max_length=32, null=True, blank=True)
+    notes = models.TextField(null=True, blank=True)
     parental_advisory = models.NullBooleanField()
-    publishing_rights_owner = models.CharField(max_length=128, blank=True)
+    publishing_rights_owner = models.CharField(max_length=128, null=True,
+                                               blank=True)
     publishing_rights_year = models.PositiveIntegerField(null=True, blank=True)
     publishers = models.ManyToManyField(Publisher)
-    recording_location = models.CharField(max_length=128, blank=True)
+    recording_location = models.CharField(max_length=128, null=True, blank=True)
     recording_year = models.PositiveIntegerField(null=True, blank=True)
-    audio_resources = models.ManyToManyField(AudioResource,  blank=True)
+    audio_resources = models.ManyToManyField(AudioResource, blank=True)
     video_resources = models.ManyToManyField(VideoResource, blank=True)
     rights_contract_begin_date = models.DateField(null=True, blank=True)
-    rights_holder_name = models.CharField(max_length=128, blank=True)
-    rights_ownership_name = models.CharField(max_length=128, blank=True)
+    rights_holder_name = models.CharField(max_length=128, null=True, blank=True)
+    rights_ownership_name = models.CharField(max_length=128, null=True,
+                                             blank=True)
     sequence_number = models.IntegerField()
 
     suggested_preview_length = models.PositiveIntegerField(null=True,
@@ -195,7 +199,7 @@ class Ringtone(models.Model):
                                                                       "seconds"))
     title = models.CharField(max_length=128)
     usage_rights = models.ManyToManyField(UsageRight, blank=True)
-    version = models.CharField(max_length=64, blank=True)
+    version = models.CharField(max_length=64, null=True, blank=True)
 
 
 class MobileProduct(models.Model):
@@ -205,9 +209,9 @@ class MobileProduct(models.Model):
                             ('Budget catalog', 'Budget catalog'),
                             ('Premium catalog', 'Premium catalog'))
 
-    alternate_genre = models.CharField(max_length=32, blank=True,
+    alternate_genre = models.CharField(max_length=32, null=True, blank=True,
                                        choices=GENRE_CHOICES)
-    alternate_subgenre = models.CharField(max_length=32, blank=True)
+    alternate_subgenre = models.CharField(max_length=32, null=True, blank=True)
     attachments = models.ForeignKey(Attachment, null=True, blank=True)
     artists = models.ManyToManyField(Artist)
     catalog_tier = models.CharField(max_length=64,
@@ -224,14 +228,14 @@ class MobileProduct(models.Model):
     fuga_delivery_id = models.PositiveIntegerField()
     label = models.CharField(max_length=128)
     main_genre = models.CharField(max_length=32, choices=GENRE_CHOICES)
-    main_subgenre = models.CharField(max_length=32, blank=True)
-    notes = models.TextField(blank=True)
+    main_subgenre = models.CharField(max_length=32, null=True, blank=True)
+    notes = models.TextField(null=True, blank=True)
     original_release_date = models.DateField(null=True, blank=True)
     parental_advisory = models.NullBooleanField()
-    product_version = models.CharField(max_length=128, blank=True)
+    product_version = models.CharField(max_length=128, null=True, blank=True)
     publishing_rights_owner = models.CharField(max_length=128)
     publishing_rights_year = models.PositiveIntegerField()
-    recording_location = models.CharField(max_length=128, blank=True)
+    recording_location = models.CharField(max_length=128, null=True, blank=True)
     recording_year = models.PositiveIntegerField(null=True, blank=True)
     ringtones = models.ManyToManyField(Ringtone)
     total_play_time = models.PositiveIntegerField(help_text=_("The total "
