@@ -208,6 +208,9 @@ class MobileProduct(models.Model):
                             ('Back catalog', 'Back catalog'),
                             ('Budget catalog', 'Budget catalog'),
                             ('Premium catalog', 'Premium catalog'))
+    STATUS_CHOICES = (('Offline', 'Offline'),
+                      ('Draft', 'Draft'),
+                      ('Published', 'Published'))
 
     alternate_genre = models.CharField(max_length=32, null=True, blank=True,
                                        choices=GENRE_CHOICES)
@@ -238,6 +241,8 @@ class MobileProduct(models.Model):
     recording_location = models.CharField(max_length=128, null=True, blank=True)
     recording_year = models.PositiveIntegerField(null=True, blank=True)
     ringtones = models.ManyToManyField(Ringtone)
+    status = models.CharField(max_length=16, choices=STATUS_CHOICES,
+                              default='Draft')
     total_play_time = models.PositiveIntegerField(help_text=_("The total "
                                                               "play time in "
                                                               "seconds"))
