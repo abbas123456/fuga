@@ -107,11 +107,6 @@ class VideoResource(models.Model):
     resource_file = models.ForeignKey(AttachmentFile)
 
 
-class Resources(models.Model):
-    audio_resource = models.ManyToManyField(AudioResource, blank=True)
-    video_resource = models.ManyToManyField(VideoResource, blank=True)
-
-
 class UsageRight(models.Model):
     NAME_CHOICES = (('SubscriptionStreaming', 'SubscriptionStreaming'),
                     ('AdSupportedStreaming', 'AdSupportedStreaming'),
@@ -183,7 +178,8 @@ class Ringtone(models.Model):
     publishers = models.ManyToManyField(Publisher)
     recording_location = models.CharField(max_length=128, blank=True)
     recording_year = models.PositiveIntegerField(null=True, blank=True)
-    resources = models.ForeignKey(Resources, null=True, blank=True)
+    audio_resources = models.ManyToManyField(AudioResource,  blank=True)
+    video_resources = models.ManyToManyField(VideoResource, blank=True)
     rights_contract_begin_date = models.DateField(null=True, blank=True)
     rights_holder_name = models.CharField(max_length=128, blank=True)
     sequence_number = models.IntegerField()

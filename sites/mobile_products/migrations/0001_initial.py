@@ -86,30 +86,6 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'mobile_products', ['VideoResource'])
 
-        # Adding model 'Resources'
-        db.create_table(u'mobile_products_resources', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-        ))
-        db.send_create_signal(u'mobile_products', ['Resources'])
-
-        # Adding M2M table for field audio_resource on 'Resources'
-        m2m_table_name = db.shorten_name(u'mobile_products_resources_audio_resource')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('resources', models.ForeignKey(orm[u'mobile_products.resources'], null=False)),
-            ('audioresource', models.ForeignKey(orm[u'mobile_products.audioresource'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['resources_id', 'audioresource_id'])
-
-        # Adding M2M table for field video_resource on 'Resources'
-        m2m_table_name = db.shorten_name(u'mobile_products_resources_video_resource')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('resources', models.ForeignKey(orm[u'mobile_products.resources'], null=False)),
-            ('videoresource', models.ForeignKey(orm[u'mobile_products.videoresource'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['resources_id', 'videoresource_id'])
-
         # Adding model 'UsageRight'
         db.create_table(u'mobile_products_usageright', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -138,7 +114,6 @@ class Migration(SchemaMigration):
             ('publishing_rights_year', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
             ('recording_location', self.gf('django.db.models.fields.CharField')(max_length=128, blank=True)),
             ('recording_year', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
-            ('resources', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['mobile_products.Resources'], null=True, blank=True)),
             ('rights_contract_begin_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
             ('rights_holder_name', self.gf('django.db.models.fields.CharField')(max_length=128, blank=True)),
             ('sequence_number', self.gf('django.db.models.fields.IntegerField')()),
@@ -175,6 +150,24 @@ class Migration(SchemaMigration):
             ('publisher', models.ForeignKey(orm[u'mobile_products.publisher'], null=False))
         ))
         db.create_unique(m2m_table_name, ['ringtone_id', 'publisher_id'])
+
+        # Adding M2M table for field audio_resources on 'Ringtone'
+        m2m_table_name = db.shorten_name(u'mobile_products_ringtone_audio_resources')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('ringtone', models.ForeignKey(orm[u'mobile_products.ringtone'], null=False)),
+            ('audioresource', models.ForeignKey(orm[u'mobile_products.audioresource'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['ringtone_id', 'audioresource_id'])
+
+        # Adding M2M table for field video_resources on 'Ringtone'
+        m2m_table_name = db.shorten_name(u'mobile_products_ringtone_video_resources')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('ringtone', models.ForeignKey(orm[u'mobile_products.ringtone'], null=False)),
+            ('videoresource', models.ForeignKey(orm[u'mobile_products.videoresource'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['ringtone_id', 'videoresource_id'])
 
         # Adding M2M table for field usage_rights on 'Ringtone'
         m2m_table_name = db.shorten_name(u'mobile_products_ringtone_usage_rights')
@@ -270,15 +263,6 @@ class Migration(SchemaMigration):
         # Deleting model 'VideoResource'
         db.delete_table(u'mobile_products_videoresource')
 
-        # Deleting model 'Resources'
-        db.delete_table(u'mobile_products_resources')
-
-        # Removing M2M table for field audio_resource on 'Resources'
-        db.delete_table(db.shorten_name(u'mobile_products_resources_audio_resource'))
-
-        # Removing M2M table for field video_resource on 'Resources'
-        db.delete_table(db.shorten_name(u'mobile_products_resources_video_resource'))
-
         # Deleting model 'UsageRight'
         db.delete_table(u'mobile_products_usageright')
 
@@ -293,6 +277,12 @@ class Migration(SchemaMigration):
 
         # Removing M2M table for field publishers on 'Ringtone'
         db.delete_table(db.shorten_name(u'mobile_products_ringtone_publishers'))
+
+        # Removing M2M table for field audio_resources on 'Ringtone'
+        db.delete_table(db.shorten_name(u'mobile_products_ringtone_audio_resources'))
+
+        # Removing M2M table for field video_resources on 'Ringtone'
+        db.delete_table(db.shorten_name(u'mobile_products_ringtone_video_resources'))
 
         # Removing M2M table for field usage_rights on 'Ringtone'
         db.delete_table(db.shorten_name(u'mobile_products_ringtone_usage_rights'))
@@ -396,17 +386,12 @@ class Migration(SchemaMigration):
             'publisher': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'writer': ('django.db.models.fields.CharField', [], {'max_length': '128'})
         },
-        u'mobile_products.resources': {
-            'Meta': {'object_name': 'Resources'},
-            'audio_resource': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['mobile_products.AudioResource']", 'symmetrical': 'False', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'video_resource': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['mobile_products.VideoResource']", 'symmetrical': 'False', 'blank': 'True'})
-        },
         u'mobile_products.ringtone': {
             'Meta': {'object_name': 'Ringtone'},
             'alternate_genre': ('django.db.models.fields.CharField', [], {'max_length': '32', 'blank': 'True'}),
             'alternate_subgenre': ('django.db.models.fields.CharField', [], {'max_length': '32', 'blank': 'True'}),
             'artists': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['mobile_products.Artist']", 'symmetrical': 'False'}),
+            'audio_resources': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['mobile_products.AudioResource']", 'symmetrical': 'False', 'blank': 'True'}),
             'available_seperately': ('django.db.models.fields.BooleanField', [], {}),
             'catalog_tier': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
             'contributors': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['mobile_products.Contributor']", 'symmetrical': 'False'}),
@@ -426,7 +411,6 @@ class Migration(SchemaMigration):
             'publishing_rights_year': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
             'recording_location': ('django.db.models.fields.CharField', [], {'max_length': '128', 'blank': 'True'}),
             'recording_year': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'resources': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['mobile_products.Resources']", 'null': 'True', 'blank': 'True'}),
             'rights_contract_begin_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'rights_holder_name': ('django.db.models.fields.CharField', [], {'max_length': '128', 'blank': 'True'}),
             'sequence_number': ('django.db.models.fields.IntegerField', [], {}),
@@ -434,7 +418,8 @@ class Migration(SchemaMigration):
             'suggested_preview_start': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'usage_rights': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['mobile_products.UsageRight']", 'symmetrical': 'False', 'blank': 'True'}),
-            'version': ('django.db.models.fields.CharField', [], {'max_length': '64', 'blank': 'True'})
+            'version': ('django.db.models.fields.CharField', [], {'max_length': '64', 'blank': 'True'}),
+            'video_resources': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['mobile_products.VideoResource']", 'symmetrical': 'False', 'blank': 'True'})
         },
         u'mobile_products.usageright': {
             'Meta': {'object_name': 'UsageRight'},
