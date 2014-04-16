@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'mobile_products',
     'south',
     'django_extensions',
+    'django_summernote', 
 )
 
 MIDDLEWARE_CLASSES = (

@@ -7,12 +7,17 @@ class Artist(models.Model):
     is_primary = models.BooleanField()
     name = models.CharField(max_length=128)
 
+    def __unicode__(self):
+        return self.name
 
 class AttachmentFile(models.Model):
     file_path = models.CharField(max_length=256)
     name = models.CharField(max_length=128)
     crc32_checksum = models.CharField(max_length=32)
     size = models.IntegerField()
+
+    def __unicode__(self):
+        return self.name
 
 
 class Attachment(models.Model):
@@ -25,6 +30,9 @@ class Attachment(models.Model):
                                        choices=ATTACHMENT_TYPE_CHOICES)
     original_file_name = models.CharField(max_length=128, null=True, blank=True)
     attachment_file = models.ForeignKey(AttachmentFile)
+
+    def __unicode__(self):
+        return self.name
 
 
 class CoverArt(models.Model):
@@ -43,6 +51,9 @@ class CoverArt(models.Model):
     file_format = models.CharField(max_length=8, choices=FILE_FORMAT_CHOICES,
                                    default="JPEG")
     attachment_file = models.ForeignKey(AttachmentFile)
+
+    def __unicode__(self):
+        return "Cover art for %s" % self.attachment_file.name
 
 
 class Contributor(models.Model):
@@ -66,10 +77,16 @@ class Contributor(models.Model):
     name = models.CharField(max_length=128)
     role = models.CharField(max_length=64, choices=ROLE_CHOICES)
 
+    def __unicode__(self):
+        return self.name
+
 
 class Publisher(models.Model):
     publisher = models.CharField(max_length=128)
     writer = models.CharField(max_length=128)
+
+    def __unicode__(self):
+        return self.publisher
 
 
 class AudioResource(models.Model):
@@ -82,6 +99,9 @@ class AudioResource(models.Model):
                                                        "play time in "
                                                        "seconds"))
     resource_file = models.ForeignKey(AttachmentFile)
+
+    def __unicode__(self):
+        return self.resource_file.name
 
 
 class VideoResource(models.Model):
@@ -106,6 +126,9 @@ class VideoResource(models.Model):
     fps = models.PositiveIntegerField(choices=FPS_CHOICES)
     resource_file = models.ForeignKey(AttachmentFile)
 
+    def __unicode__(self):
+        return self.resource_file.name
+
 
 class UsageRight(models.Model):
     NAME_CHOICES = (('SubscriptionStreaming', 'SubscriptionStreaming'),
@@ -118,6 +141,9 @@ class UsageRight(models.Model):
                     ('BurnCD', 'BurnCD'))
 
     name = models.CharField(max_length=64, choices=NAME_CHOICES)
+
+    def __unicode__(self):
+        return self.name
 
 
 GENRE_CHOICES = (('Alternative', 'Alternative'),
@@ -201,6 +227,9 @@ class Ringtone(models.Model):
     usage_rights = models.ManyToManyField(UsageRight, blank=True)
     version = models.CharField(max_length=64, null=True, blank=True)
 
+    def __unicode__(self):
+        return self.title
+
 
 class MobileProduct(models.Model):
     CATALOG_TIER_CHOICES = (('Front catalog', 'Front catalog'),
@@ -249,3 +278,6 @@ class MobileProduct(models.Model):
     title = models.CharField(max_length=128)
     upc_code = models.CharField(max_length=32)
     usage_rights = models.ManyToManyField(UsageRight, blank=True)
+
+    def __unicode__(self):
+        return self.title
