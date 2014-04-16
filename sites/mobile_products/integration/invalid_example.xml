@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mobile_product xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://fugamusic.com/schema/fuga_delivery_mobile_product-1.4.4.xsd">
+    <action>
+        <type>insert</type>
+        <effective_date>2009-10-16T00:00:00+02:00</effective_date>
+    </action>
+    <mobile_product_notes>Music by: Heath Whitelock
+http://www.heathwhitelock.com/</mobile_product_notes>
+    <contract>
+        <id>22073</id>
+        <supplier>
+            <id>119</id>
+            <name>Label Two</name>
+            <reference/>
+        </supplier>
+    </contract>
+    <c_line_text>Copyright</c_line_text>
+    <c_line_year></c_line_year>
+    <catalog_number>Rlabel000107</catalog_number>
+    <catalog_tier>Front catalog</catalog_tier>
+    <cover_art>
+        <image>
+            <color_model>RGB</color_model>
+            <file_format>JPEG</file_format>
+            <file>
+                <path>/fuga_test_provider/22080-8234567890626</path>
+                <name>8234567890626.jpg</name>
+                <crc32_checksum>1450072837</crc32_checksum>
+                <size>375039</size>
+            </file>
+        </image>
+    </cover_art>
+    <display_artist>Cypress Hill</display_artist>
+    <consumer_release_date>2009-10-16</consumer_release_date>
+    <exclusive_for>0</exclusive_for>
+    <main_genre>Hip Hop/Rap</main_genre>
+    <id>22077</id>
+    <label>Columbia</label>
+    <name>Black Sunday (ringtones)</name>
+    <original_release_date>1958-11-21</original_release_date>
+    <p_line_text>Copyright</p_line_text>
+    <p_line_year>1958</p_line_year>
+    <parental_advisory>false</parental_advisory>
+    <fuga_delivery_id>22080</fuga_delivery_id>
+    <artists>
+        <artist>
+            <biography>After the Cypress Hill first album was crowned the greatest boogie record of all time by rockers worldwide, no one knew just how the hell they could top it. But what were they thinking? The dream boys always bring da neck-licking, boot-scooting, soul-scratching, ass-shaking party tunes that never disappoint.</biography>
+            <id>4769</id>
+            <name>Cypress Hill</name>
+            <primary>true</primary>
+        </artist>
+    </artists>
+    <recording_year>2004</recording_year>
+    <recording_location>Palm Springs, California</recording_location>
+    <product_version/>
+    <total_play_time>1210</total_play_time>
+    <territories>
+        <territory>WORLD</territory>
+    </territories>
+    <ringtones>
+        <ringtone>
+            <main_genre>Hip Hop/Rap</main_genre>
+            <available_separately>false</available_separately>
+            <catalog_tier>Front catalog</catalog_tier>
+            <country_of_commissioning>USA</country_of_commissioning>
+            <country_of_recording>USA</country_of_recording>
+            <display_artist>Cypress Hill</display_artist>
+            <duration>242</duration>
+            <id>6095</id>
+            <resources>
+                <audio>
+                    <recording_type>full</recording_type>
+                    <duration>242</duration>
+                    <file>
+                        <path>/fuga_test_provider/22080-8234567890626</path>
+                        <name>8234567890626_1_01_mp3_cbr_128.mp3</name>
+                        <crc32_checksum>1267345975</crc32_checksum>
+                        <size>3889280</size>
+                    </file>
+                </audio>
+            </resources>
+            <isrc_code>LABEL0000241</isrc_code>
+            <lyrics/>
+            <name>I Wanna Get High</name>
+            <p_line_text>Copyright</p_line_text>
+            <p_line_year>2009</p_line_year>
+            <parental_advisory>false</parental_advisory>
+            <suggested_preview_length>30</suggested_preview_length>
+            <suggested_preview_start>10</suggested_preview_start>
+            <artists>
+                <artist>
+                    <biography>After the Cypress Hill first album was crowned the greatest boogie record of all time by rockers worldwide, no one knew just how the hell they could top it. But what were they thinking? The dream boys always bring da neck-licking, boot-scooting, soul-scratching, ass-shaking party tunes that never disappoint.</biography>
+                    <id>4769</id>
+                    <name>Cypress Hill</name>
+                    <primary>true</primary>
+                </artist>
+            </artists>
+            <publishers>
+      </publishers>
+            <recording_year>2004</recording_year>
+            <recording_location>Palm Springs, California</recording_location>
+            <sequence_number>1</sequence_number>
+            <rights_contract_begin_date>1998-11-21</rights_contract_begin_date>
+            <rights_holder_name>Cortez Records</rights_holder_name>
+            <rights_ownership_name>Cortez Records</rights_ownership_name>
+            <ringtone_notes>think about this</ringtone_notes>
+            <ringtone_version/>
+            <usage_rights>
+                <usage_right>SubscriptionStreaming</usage_right>
+                <usage_right>AdSupportedStreaming</usage_right>
+                <usage_right>SubscriptionDownload</usage_right>
+                <usage_right>PermanentDownload</usage_right>
+                <usage_right>UserGeneratedAudio</usage_right>
+                <usage_right>UserGeneratedVideo</usage_right>
+                <usage_right>UserGeneratedRingtone</usage_right>
+                <usage_right>BurnCD</usage_right>
+            </usage_rights>
+        </ringtone>
+        <ringtone>
+            <main_genre>Hip Hop/Rap</main_genre>
+            <available_separately>false</available_separately>
+            <catalog_tier>Front catalog</catalog_tier>
+            <country_of_commissioning>USA</country_of_commissioning>
+            <country_of_recording>USA</country_of_recording>
+            <display_artist>Cypress Hill</display_artist>
+            <duration>242</duration>
+            <id>6099</id>
+            <resources>
+                <audio>
+                    <recording_type>full</recording_type>
+                    <duration>242</duration>
+                    <file>
+                        <path>/fuga_test_provider/22080-8234567890626</path>
+                        <name>8234567890626_1_02_mp3_cbr_128.mp3</name>
+                        <crc32_checksum>2489785639</crc32_checksum>
+                        <size>3889280</size>
+                    </file>
+                </audio>
+            </resources>
+            <isrc_code>LABEL0000242</isrc_code>
+            <lyrics/>
+            <name>I Ain't Goin' Out Like That</name>
+            <p_line_text>Copyright</p_line_text>
+            <p_line_year>2009</p_line_year>
+            <parental_advisory>false</parental_advisory>
+            <suggested_preview_length>30</suggested_preview_length>
+            <suggested_preview_start>10</suggested_preview_start>
+            <artists>
+                <artist>
+                    <biography>After the Cypress Hill first album was crowned the greatest boogie record of all time by rockers worldwide, no one knew just how the hell they could top it. But what were they thinking? The dream boys always bring da neck-licking, boot-scooting, soul-scratching, ass-shaking party tunes that never disappoint.</biography>
+                    <id>4769</id>
+                    <name>Cypress Hill</name>
+                    <primary>true</primary>
+                </artist>
+            </artists>
+            <publishers>
+      </publishers>
+            <recording_year>2004</recording_year>
+            <recording_location>Palm Springs, California</recording_location>
+            <sequence_number>2</sequence_number>
+            <rights_contract_begin_date>1998-11-21</rights_contract_begin_date>
+            <rights_holder_name>Cortez Records</rights_holder_name>
+            <rights_ownership_name>Cortez Records</rights_ownership_name>            
+            <ringtone_notes>think about this</ringtone_notes>
+            <ringtone_version/>
+            <usage_rights>
+                <usage_right>SubscriptionStreaming</usage_right>
+                <usage_right>AdSupportedStreaming</usage_right>
+                <usage_right>SubscriptionDownload</usage_right>
+                <usage_right>PermanentDownload</usage_right>
+                <usage_right>UserGeneratedAudio</usage_right>
+                <usage_right>UserGeneratedVideo</usage_right>
+                <usage_right>UserGeneratedRingtone</usage_right>
+                <usage_right>BurnCD</usage_right>
+            </usage_rights>
+        </ringtone>
+        <ringtone>
+            <main_genre>Hip Hop/Rap</main_genre>
+            <available_separately>false</available_separately>
+            <catalog_tier>Front catalog</catalog_tier>
+            <country_of_commissioning>USA</country_of_commissioning>
+            <country_of_recording>USA</country_of_recording>
+            <display_artist>Cypress Hill</display_artist>
+            <duration>242</duration>
+            <id>6103</id>
+            <resources>
+                <audio>
+                    <recording_type>full</recording_type>
+                    <duration>242</duration>
+                    <file>
+                        <path>/fuga_test_provider/22080-8234567890626</path>
+                        <name>8234567890626_1_03_mp3_cbr_128.mp3</name>
+                        <crc32_checksum>3528169086</crc32_checksum>
+                        <size>3889280</size>
+                    </file>
+                </audio>
+            </resources>
+            <isrc_code>LABEL0000243</isrc_code>
+            <lyrics/>
+            <name>Insane In The Brain</name>
+            <p_line_text>Copyright</p_line_text>
+            <p_line_year>2009</p_line_year>
+            <parental_advisory>false</parental_advisory>
+            <suggested_preview_length>30</suggested_preview_length>
+            <suggested_preview_start>10</suggested_preview_start>
+            <artists>
+                <artist>
+                    <biography>After the Cypress Hill first album was crowned the greatest boogie record of all time by rockers worldwide, no one knew just how the hell they could top it. But what were they thinking? The dream boys always bring da neck-licking, boot-scooting, soul-scratching, ass-shaking party tunes that never disappoint.</biography>
+                    <id>4769</id>
+                    <name>Cypress Hill</name>
+                    <primary>true</primary>
+                </artist>
+            </artists>
+            <publishers>
+      </publishers>
+            <recording_year>2004</recording_year>
+            <recording_location>Palm Springs, California</recording_location>
+            <sequence_number>3</sequence_number>
+            <ringtone_notes>think about this</ringtone_notes>
+            <ringtone_version/>
+            <usage_rights>
+                <usage_right>SubscriptionStreaming</usage_right>
+                <usage_right>AdSupportedStreaming</usage_right>
+                <usage_right>SubscriptionDownload</usage_right>
+                <usage_right>PermanentDownload</usage_right>
+                <usage_right>UserGeneratedAudio</usage_right>
+                <usage_right>UserGeneratedVideo</usage_right>
+                <usage_right>UserGeneratedRingtone</usage_right>
+                <usage_right>BurnCD</usage_right>
+            </usage_rights>
+        </ringtone>
+        <ringtone>
+            <main_genre>Hip Hop/Rap</main_genre>
+            <available_separately>false</available_separately>
+            <catalog_tier>Front catalog</catalog_tier>
+            <country_of_commissioning>USA</country_of_commissioning>
+            <country_of_recording>USA</country_of_recording>
+            <display_artist>Cypress Hill</display_artist>
+            <duration>242</duration>
+            <id>6107</id>
+            <resources>
+                <audio>
+                    <recording_type>full</recording_type>
+                    <duration>242</duration>
+                    <file>
+                        <path>/fuga_test_provider/22080-8234567890626</path>
+                        <name>8234567890626_1_04_mp3_cbr_128.mp3</name>
+                        <crc32_checksum>323477733</crc32_checksum>
+                        <size>3889280</size>
+                    </file>
+                </audio>
+            </resources>
+            <isrc_code>LABEL0000244</isrc_code>
+            <lyrics/>
+            <name>When The Shit Goes Down</name>
+            <p_line_text>Copyright</p_line_text>
+            <p_line_year>2009</p_line_year>
+            <parental_advisory>false</parental_advisory>
+            <suggested_preview_length>30</suggested_preview_length>
+            <suggested_preview_start>10</suggested_preview_start>
+            <artists>
+                <artist>
+                    <biography>After the Cypress Hill first album was crowned the greatest boogie record of all time by rockers worldwide, no one knew just how the hell they could top it. But what were they thinking? The dream boys always bring da neck-licking, boot-scooting, soul-scratching, ass-shaking party tunes that never disappoint.</biography>
+                    <id>4769</id>
+                    <name>Cypress Hill</name>
+                    <primary>true</primary>
+                </artist>
+            </artists>
+            <publishers>
+      </publishers>
+            <recording_year>2004</recording_year>
+            <recording_location>Palm Springs, California</recording_location>
+            <sequence_number>4</sequence_number>
+            <rights_contract_begin_date>1998-11-21</rights_contract_begin_date>
+            <rights_holder_name>Cortez Records</rights_holder_name>
+            <rights_ownership_name>Cortez Records</rights_ownership_name>
+            <ringtone_notes>think about this</ringtone_notes>
+            <ringtone_version/>
+            <usage_rights>
+                <usage_right>SubscriptionStreaming</usage_right>
+                <usage_right>AdSupportedStreaming</usage_right>
+                <usage_right>SubscriptionDownload</usage_right>
+                <usage_right>PermanentDownload</usage_right>
+                <usage_right>UserGeneratedAudio</usage_right>
+                <usage_right>UserGeneratedVideo</usage_right>
+                <usage_right>UserGeneratedRingtone</usage_right>
+                <usage_right>BurnCD</usage_right>
+            </usage_rights>
+        </ringtone>
+        <ringtone>
+            <main_genre>Hip Hop/Rap</main_genre>
+            <available_separately>false</available_separately>
+            <catalog_tier>Front catalog</catalog_tier>
+            <country_of_commissioning>USA</country_of_commissioning>
+            <country_of_recording>USA</country_of_recording>
+            <display_artist>Cypress Hill</display_artist>
+            <duration>242</duration>
+            <id>6111</id>
+            <resources>
+                <audio>
+                    <recording_type>full</recording_type>
+                    <duration>242</duration>
+                    <file>
+                        <path>/fuga_test_provider/22080-8234567890626</path>
+                        <name>8234567890626_1_05_mp3_cbr_128.mp3</name>
+                        <crc32_checksum>1687664652</crc32_checksum>
+                        <size>3889280</size>
+                    </file>
+                </audio>
+            </resources>
+            <isrc_code>LABEL0000245</isrc_code>
+            <lyrics/>
+            <name>Cock The Hammer</name>
+            <p_line_text>Copyright</p_line_text>
+            <p_line_year>2009</p_line_year>
+            <parental_advisory>false</parental_advisory>
+            <suggested_preview_length>30</suggested_preview_length>
+            <suggested_preview_start>10</suggested_preview_start>
+            <artists>
+                <artist>
+                    <biography>After the Cypress Hill first album was crowned the greatest boogie record of all time by rockers worldwide, no one knew just how the hell they could top it. But what were they thinking? The dream boys always bring da neck-licking, boot-scooting, soul-scratching, ass-shaking party tunes that never disappoint.</biography>
+                    <id>4769</id>
+                    <name>Cypress Hill</name>
+                    <primary>true</primary>
+                </artist>
+            </artists>
+            <publishers>
+      </publishers>
+            <recording_year>2004</recording_year>
+            <recording_location>Palm Springs, California</recording_location>
+            <sequence_number>5</sequence_number>
+            <rights_contract_begin_date>1998-11-21</rights_contract_begin_date>
+            <rights_holder_name>Cortez Records</rights_holder_name>
+            <rights_ownership_name>Cortez Records</rights_ownership_name>
+            <ringtone_notes>think about this</ringtone_notes>
+            <ringtone_version/>
+            <usage_rights>
+                <usage_right>SubscriptionStreaming</usage_right>
+                <usage_right>AdSupportedStreaming</usage_right>
+                <usage_right>SubscriptionDownload</usage_right>
+                <usage_right>PermanentDownload</usage_right>
+                <usage_right>UserGeneratedAudio</usage_right>
+                <usage_right>UserGeneratedVideo</usage_right>
+                <usage_right>UserGeneratedRingtone</usage_right>
+                <usage_right>BurnCD</usage_right>
+            </usage_rights>
+        </ringtone>
+    </ringtones>
+    <upc_code>8234567890626</upc_code>
+    <territory_exceptions>
+        <territory_exception>
+            <territory>BE</territory>
+            <consumer_release_date>2011-04-14</consumer_release_date>
+            <preorder_date>2011-04-07</preorder_date>
+        </territory_exception>
+        <territory_exception>
+            <territory>LU</territory>
+            <consumer_release_date>2011-04-14</consumer_release_date>
+            <preorder_date>2011-04-07</preorder_date>
+        </territory_exception>
+        <territory_exception>
+            <territory>NL</territory>
+            <consumer_release_date>2011-04-13</consumer_release_date>
+            <preorder_date>2011-04-07</preorder_date>
+        </territory_exception>
+    </territory_exceptions>
+    <usage_rights>
+        <usage_right>SubscriptionStreaming</usage_right>
+        <usage_right>AdSupportedStreaming</usage_right>
+        <usage_right>SubscriptionDownload</usage_right>
+        <usage_right>PermanentDownload</usage_right>
+        <usage_right>UserGeneratedAudio</usage_right>
+        <usage_right>UserGeneratedVideo</usage_right>
+        <usage_right>UserGeneratedRingtone</usage_right>
+        <usage_right>BurnCD</usage_right>
+    </usage_rights>
+    <pricing_intervals>
+        <pricing_interval>
+            <territory>GR</territory>
+            <catalog_tier>4</catalog_tier>
+            <start_date>2013-01-18</start_date>
+            <end_date>2013-01-24</end_date>
+        </pricing_interval>
+        <pricing_interval>
+            <territory>AT</territory>
+            <catalog_tier>30</catalog_tier>
+            <start_date>2013-01-23</start_date>
+        </pricing_interval>
+    </pricing_intervals>
+</mobile_product>

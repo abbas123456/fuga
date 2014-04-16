@@ -1,6 +1,8 @@
 from django.test import TestCase
+from django.core.management import call_command
 from mobile_products.xml_adaptor import MobileProductModel
 from mobile_products import models
+from django.core.management.base import CommandError
 
 
 class TestXmlAdaptorConversion(TestCase):
@@ -254,3 +256,20 @@ class TestXmlAdaptorSave(TestCase):
         self.assertEqual(artist.id, 4769)
         self.assertEqual(artist.name, "Cypress Hill")
         self.assertTrue(artist.is_primary)
+
+
+class TestManagementCommand(TestCase):
+
+    def test_fails_with_no_arguments(self):
+        self.assertRaises(CommandError, call_command, 'import_xml_file')
+
+    def test_fails_with_nonexistent_file(self):
+        self.assertRaises(CommandError, call_command, 'import_xml_file', 'bla')
+
+    def test_fails_with_invalid_file(self):
+        self.assertRaises(CommandError, call_command, 'import_xml_file',
+                          'mobile_products/integration/invalid_example.xml')
+
+    def test_successds_with_valid_file(self):
+        call_command('import_xml_file',
+                     'mobile_products/integration/example.xml')
