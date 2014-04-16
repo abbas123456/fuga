@@ -138,6 +138,7 @@ class Migration(SchemaMigration):
             ('publishing_rights_year', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
             ('recording_location', self.gf('django.db.models.fields.CharField')(max_length=128, blank=True)),
             ('recording_year', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
+            ('resources', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['mobile_products.Resources'], null=True, blank=True)),
             ('rights_contract_begin_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
             ('rights_holder_name', self.gf('django.db.models.fields.CharField')(max_length=128, blank=True)),
             ('sequence_number', self.gf('django.db.models.fields.IntegerField')()),
@@ -174,15 +175,6 @@ class Migration(SchemaMigration):
             ('publisher', models.ForeignKey(orm[u'mobile_products.publisher'], null=False))
         ))
         db.create_unique(m2m_table_name, ['ringtone_id', 'publisher_id'])
-
-        # Adding M2M table for field resources on 'Ringtone'
-        m2m_table_name = db.shorten_name(u'mobile_products_ringtone_resources')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('ringtone', models.ForeignKey(orm[u'mobile_products.ringtone'], null=False)),
-            ('resources', models.ForeignKey(orm[u'mobile_products.resources'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['ringtone_id', 'resources_id'])
 
         # Adding M2M table for field usage_rights on 'Ringtone'
         m2m_table_name = db.shorten_name(u'mobile_products_ringtone_usage_rights')
@@ -301,9 +293,6 @@ class Migration(SchemaMigration):
 
         # Removing M2M table for field publishers on 'Ringtone'
         db.delete_table(db.shorten_name(u'mobile_products_ringtone_publishers'))
-
-        # Removing M2M table for field resources on 'Ringtone'
-        db.delete_table(db.shorten_name(u'mobile_products_ringtone_resources'))
 
         # Removing M2M table for field usage_rights on 'Ringtone'
         db.delete_table(db.shorten_name(u'mobile_products_ringtone_usage_rights'))
@@ -437,7 +426,7 @@ class Migration(SchemaMigration):
             'publishing_rights_year': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
             'recording_location': ('django.db.models.fields.CharField', [], {'max_length': '128', 'blank': 'True'}),
             'recording_year': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'resources': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['mobile_products.Resources']", 'symmetrical': 'False', 'blank': 'True'}),
+            'resources': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['mobile_products.Resources']", 'null': 'True', 'blank': 'True'}),
             'rights_contract_begin_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'rights_holder_name': ('django.db.models.fields.CharField', [], {'max_length': '128', 'blank': 'True'}),
             'sequence_number': ('django.db.models.fields.IntegerField', [], {}),
