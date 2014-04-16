@@ -182,6 +182,7 @@ class Ringtone(models.Model):
     video_resources = models.ManyToManyField(VideoResource, blank=True)
     rights_contract_begin_date = models.DateField(null=True, blank=True)
     rights_holder_name = models.CharField(max_length=128, blank=True)
+    rights_ownership_name = models.CharField(max_length=128, blank=True)
     sequence_number = models.IntegerField()
 
     suggested_preview_length = models.PositiveIntegerField(null=True,
