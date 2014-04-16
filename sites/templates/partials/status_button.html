@@ -1,0 +1,4 @@
+{% load i18n %}
+<button type="button" name="status_button" data-id="{{ model.id }}" {% if model.status == 'Offline' %} disabled="disabled" {% endif %}>
+	{% trans "Change status to offline" %}
+</button>

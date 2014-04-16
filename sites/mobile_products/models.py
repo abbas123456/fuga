@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.shortcuts import render_to_response
+from django.template.loader import render_to_string
 
 
 class Artist(models.Model):
@@ -10,11 +12,20 @@ class Artist(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class AttachmentFile(models.Model):
     file_path = models.CharField(max_length=256)
     name = models.CharField(max_length=128)
     crc32_checksum = models.CharField(max_length=32)
     size = models.IntegerField()
+
+    def get_file_path(self):
+        if self.coverart_set.all():
+            return "http://files.u-dox.com/jc/udoxlogo.jpg"
+        elif self.audioresource_set.all():
+            return "http://files.u-dox.com/jc/udoxtheme.mp3"
+        else:
+            return self.file_path
 
     def __unicode__(self):
         return self.name
