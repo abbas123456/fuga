@@ -157,7 +157,7 @@ class Ringtone(models.Model):
                                        choices=GENRE_CHOICES)
     alternate_subgenre = models.CharField(max_length=32, blank=True)
     artists = models.ManyToManyField(Artist)
-    available_seperately = models.BooleanField()
+    available_separately = models.BooleanField()
     catalog_tier = models.CharField(max_length=64,
                                     choices=CATALOG_TIER_CHOICES)
     contributors = models.ManyToManyField(Contributor)
