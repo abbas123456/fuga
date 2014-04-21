@@ -10,10 +10,10 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'sites.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
-    url(r'', include(admin.site.urls)),
-    url(r'^summernote/', include('django_summernote.urls')),
     url(r'^update_mobile_product_status/',
         csrf_exempt(UpdateMobileProductStatusView.as_view())),
+    url(r'', include(admin.site.urls)),
+    url(r'^summernote/', include('django_summernote.urls')),
+    
     
 )
